@@ -1,12 +1,6 @@
-/***
-**
-*	Custom CSS
-**	
-***/
-
-body, section {			/* Change width and height to own preferences */
+body, section {		
 	width: 500px;
-	height: 400px;
+	height: 200px;
 	overflow-x: hidden;
 }
 
