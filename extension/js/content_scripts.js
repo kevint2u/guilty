@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////////////////////
 
 console.log('hello world');
+// Set the classname to look for here! 
 var g_classname = 'prettyprint';
 
 // Add bubble to the top of the page.
@@ -12,28 +13,26 @@ document.body.appendChild(bubbleDOM);
 
 // listen to mouseup DOM events.
 document.addEventListener('mouseup', function (e) {
-	console.log('mouseup');	
-  var selection = window.getSelection().toString();
-  console.log(selection);
-  // if (selection.length > 0) {
-  //   renderBubble(e.clientX, e.clientY, selection);
-  // }
+	var selection = window.getSelection().toString();
+	console.log(selection);
+	// if (selection.length > 0) {
+	//   renderBubble(e.clientX, e.clientY, selection);
+	// }
 }, false);
 
 // Close the bubble when we click on the screen.
 document.addEventListener('mousedown', function (e) {
-	console.log('mousedown');
-  bubbleDOM.style.visibility = 'hidden';
+	bubbleDOM.style.visibility = 'hidden';
 }, false);
 
 // Move that bubble to the appropriate location.
 function renderBubble(mouseX, mouseY, selection) {
-  var top = parseInt(window.pageYOffset || document.documentElement.scrollTop,10);
-  var left = parseInt(window.pageXOffset || document.documentElement.scrollLeft,10);
-  bubbleDOM.innerHTML = selection;
-  bubbleDOM.style.top = (mouseY + top) + 'px';
-  bubbleDOM.style.left = (mouseX + left) + 'px';
-  bubbleDOM.style.visibility = 'visible';
+	var top = parseInt(window.pageYOffset || document.documentElement.scrollTop,10);
+	var left = parseInt(window.pageXOffset || document.documentElement.scrollLeft,10);
+	bubbleDOM.innerHTML = selection;
+	bubbleDOM.style.top = (mouseY + top) + 'px';
+	bubbleDOM.style.left = (mouseX + left) + 'px';
+	bubbleDOM.style.visibility = 'visible';
 }
 function processElement(class_list, e){
 	if(class_list.indexOf(g_classname) > -1){
