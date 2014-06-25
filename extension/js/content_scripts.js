@@ -4,7 +4,7 @@
 
 console.log('hello world');
 // Set the classname to look for here! 
-var g_classname = 'prettyprint';
+var g_classname = 'moneyDOM';
 
 // Add bubble to the top of the page.
 var bubbleDOM = document.createElement('div');
@@ -27,6 +27,7 @@ document.addEventListener('mousedown', function (e) {
 
 // Move that bubble to the appropriate location.
 function renderBubble(mouseX, mouseY, selection) {
+	// console.log('render this bubble');
 	var top = parseInt(window.pageYOffset || document.documentElement.scrollTop,10);
 	var left = parseInt(window.pageXOffset || document.documentElement.scrollLeft,10);
 	bubbleDOM.innerHTML = selection;
@@ -35,6 +36,7 @@ function renderBubble(mouseX, mouseY, selection) {
 	bubbleDOM.style.visibility = 'visible';
 }
 function processElement(class_list, e){
+	// console.log('processing elements');
 	if(class_list.indexOf(g_classname) > -1){
 		renderBubble(e.clientX, e.clientY, "FOUND THE CLASS: " + g_classname);
 	}
@@ -59,3 +61,12 @@ document.onmouseover = function(e) {
 ////////////////////////////////////////////////////////////////
 // CONNIE HUANG CODE
 ////////////////////////////////////////////////////////////////
+
+$("body").html(function (_, word) {
+    matches = word.match(/\$(([1-9]\d{0,2}(,\d{3})*)|(([1-9]\d*)?\d))(\.\d\d)?/g);
+
+    var wrapped = $.map(matches, function (val, i) {
+        $("body").html($("body").html().replace(/(\$(([1-9]\d{0,2}(,?\d{3})*)|(([1-9]\d*)?\d))(\.\d\d)?)/g, '<span class="moneyDOM">$1</span>'));
+    });
+
+});
