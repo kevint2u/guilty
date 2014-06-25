@@ -26,9 +26,11 @@ document.addEventListener('mousedown', function (e) {
 
 // Move that bubble to the appropriate location.
 function renderBubble(mouseX, mouseY, selection) {
+  var top = parseInt(window.pageYOffset || document.documentElement.scrollTop,10);
+  var left = parseInt(window.pageXOffset || document.documentElement.scrollLeft,10);
   bubbleDOM.innerHTML = selection;
-  bubbleDOM.style.top = mouseY + 'px';
-  bubbleDOM.style.left = mouseX + 'px';
+  bubbleDOM.style.top = (mouseY + top) + 'px';
+  bubbleDOM.style.left = (mouseX + left) + 'px';
   bubbleDOM.style.visibility = 'visible';
 }
 
