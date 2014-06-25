@@ -6,7 +6,7 @@
 	"content_scripts": [
     {
       "matches": ["https://*/*", "http://*/*"],
-      "css": ["css/custom.css"],
+      "css": ["css/content_scripts.css"],
       "js": ["js/jquery-2.0.3.min.js", "js/content_scripts.js"],
       "run_at": "document_end",
       "all_frames": true
@@ -28,6 +28,6 @@
 	},
 	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
 	"web_accessible_resources": [
-		"img/icon128.png"
+		"img/icon128.png", "js/jquery-2.0.3.min.map", "js/jquery-2.0.3.min.js"
 	]
 }
