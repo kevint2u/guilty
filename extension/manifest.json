@@ -3,6 +3,14 @@
 	"name": "Guilty",
 	"description": "Put your impulse shopping in perspective",
 	"version": "1.0",
+	"content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "css": ["css/custom.css"],
+      "js": ["js/jquery-2.0.3.min.js", "js/content_scripts.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }],
 	"permissions": [
 		"storage"
 	],
