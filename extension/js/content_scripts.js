@@ -28,6 +28,7 @@ document.addEventListener('mousedown', function (e) {
 // Move that bubble to the appropriate location.
 function renderBubble(mouseX, mouseY, selection) {
 	// console.log('render this bubble');
+	var bubbleDOM = document.getElementsByClassName('selection_bubble')[0];
 	var top = parseInt(window.pageYOffset || document.documentElement.scrollTop,10);
 	var left = parseInt(window.pageXOffset || document.documentElement.scrollLeft,10);
 	bubbleDOM.innerHTML = selection;
@@ -66,7 +67,7 @@ $("body").html(function (_, word) {
     matches = word.match(/\$(([1-9]\d{0,2}(,\d{3})*)|(([1-9]\d*)?\d))(\.\d\d)?/g);
 
     var wrapped = $.map(matches, function (val, i) {
-        $("body").html($("body").html().replace(/(\$(([1-9]\d{0,2}(,?\d{3})*)|(([1-9]\d*)?\d))(\.\d\d)?)/g, '<span class="moneyDOM">$1</span>'));
+        $("body").html($("body").html().replace(/(\$(([1-9]\d{0,2}(,?\d{3})*)|(([1-9]\d*)?\d))(\.\d\d)?)/g, '<span class="moneyDOM"><span class="moneyDOM">$1</span></span>'));
     });
 
 });
